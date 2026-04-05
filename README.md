@@ -6,8 +6,8 @@ This project showcases the complete engineering workflow of integrating the LEGO
 
 ## Solution Design
 
-![Solution Design](/docs/solution_design.png)
+![Solution Design](/docs/solution_design/solution_design.png)
 
 ## Domain Data Model
 
-![Domain Data Model](/docs/domain_model.png)
+![Domain Data Model](/docs/domain_model/domain_model.png)
