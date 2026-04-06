@@ -11,3 +11,7 @@ This project showcases the complete engineering workflow of integrating the LEGO
 ## Domain Data Model
 
 ![Domain Data Model](/docs/domain_model/domain_model.png)
+
+## Conceptual Data Model
+
+![Conceptual Data Model](/docs/conceptual_model/conceptual_model.png)
