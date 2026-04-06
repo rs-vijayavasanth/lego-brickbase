@@ -21,13 +21,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Solution design diagram
 - Domain model diagram
 
-## [0.2.0] - 2026-04-06
+## [0.2.0] - 2026-04-05
 
 ### Changed
 - Replaced dbt with PySpark for data transformation
 - Restructured project folder layout
 
-## [0.1.0] - 2026-04-06
+## [0.1.0] - 2026-04-04
 
 ### Added
 - Initial project setup
