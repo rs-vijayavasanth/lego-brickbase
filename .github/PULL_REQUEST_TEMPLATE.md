@@ -24,6 +24,7 @@ Before requesting review, ensure that all required validations have been complet
 - [ ] Unit / Integration tests executed successfully
 - [ ] Manual validation in DEV environment
 - [ ] No breaking changes introduced
+- [ ] Sample Change
 
 **Test Evidence (if applicable):**  
 Screenshots, logs, or validation output
