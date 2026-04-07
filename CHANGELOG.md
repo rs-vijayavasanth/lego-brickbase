@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-04-07
+
+### Added
+- Silver layer Databricks notebooks for all foundation models:
+  - Colors, Themes, Sets, Parts, Part Categories, Minifigs
+  - Inventories, Inventory Parts, Inventory Minifigs, Inventory Sets
+- PySpark-based transformations with key and column aliasing
+- Delta table creation using CREATE OR REPLACE for idempotent loads
+
 ## [0.5.0] - 2026-04-06
 
 ### Added
