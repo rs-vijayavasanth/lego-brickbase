@@ -6,6 +6,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-04-08
+
+### Added
+- Gold layer Databricks notebooks for all dimensional models:
+  - Dimensions: `dim_color`, `dim_part`, `dim_set`, `dim_theme_hierarchy`
+  - Facts: `fct_color_usage`, `fct_part_usage`, `fct_set_composition`, `fct_set_inventory`, `fct_set_minifigs`, `fct_theme_summary`
+- Delta table constraints including primary keys, foreign key references, and parent key constraints
+- Table and column descriptions on all gold layer Delta tables
+
+### Changed
+- Harmonized key column naming across `dim_set`, `fct_set_inventory`, and `fct_set_minifigs`
+- Removed low-quality (`bad DQ`) columns from `dim_part`
+
+## [0.6.0] - 2026-04-07
+
+### Added
+- Silver layer Databricks notebooks for all foundation models:
+  - Colors, Themes, Sets, Parts, Part Categories, Minifigs
+  - Inventories, Inventory Parts, Inventory Minifigs, Inventory Sets
+- PySpark-based transformations with key and column aliasing
+- Delta table creation using CREATE OR REPLACE for idempotent loads
+
 ## [0.5.0] - 2026-04-06
 
 ### Added
