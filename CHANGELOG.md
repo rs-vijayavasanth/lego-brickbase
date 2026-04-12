@@ -4,10 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.8.0] - 2026-04-12
 
 ### Added
-- Logical data model diagram (Mermaid ERD) covering all dimension and fact tables in the gold layer
+- Comprehensive solution design documentation covering architecture, data models, technology, security, deployment, and governance, split into 12 topic-focused files with a section index under `docs/solution_design/`
+- Cross-reference links in `README.md` pointing to solution design, domain model, conceptual model, and logical model docs
+
+### Changed
+- Restructured `docs/solution_design/` by moving diagram assets into a dedicated `assets/` subfolder
+
+## [0.7.1] - 2026-04-12
 
 ### Fixed
 - `fct_theme_summary`: replaced `theme_name` as primary key with `theme_key` (INTEGER surrogate key), grouping and selecting by `theme_key` to ensure uniqueness

@@ -1,28 +1,10 @@
-# lego-brickbase
+# Logical Data Model
 
-## Purpose
+[< Back to Solution Outline](README.md)
 
-This project showcases the complete engineering workflow of integrating the LEGO brickbase API and database into a unified data model on Databricks, covering data ingestion, transformation with PySpark, and tabular modeling for Power BI reporting.
+---
 
-## Solution Design
-
-![Solution Design](/docs/solution_design/assets/solution_design.png)
-
-> For a detailed solution design document, see [Solution Outline Document](docs/solution_design/README.md).
-
-## Domain Data Model
-
-![Domain Data Model](/docs/domain_model/domain_model.png)
-
-> For a detailed explanation of the domain data models, see [Domain Data Model](docs\solution_design\02-conceptual-data-model.md).
-
-## Conceptual Data Model
-
-![Conceptual Data Model](/docs/conceptual_model/conceptual_model.png)
-
-> For a detailed explanation of the conceptual data models, see [Conceptual Data Model](docs\solution_design\02-conceptual-data-model.md).
-
-## Logical Data Model
+## Entity Relationship Diagram
 
 ```mermaid
 ---
@@ -206,4 +188,29 @@ erDiagram
     classDef fct stroke:#06f,stroke-width:2px
 ```
 
-> For a detailed explanation of the logical data models, see [Logical Data Model](docs\solution_design\04-logical-data-model.md).
+---
+
+## Key Relationships
+
+| Relationship | Cardinality | Join Key | Description |
+|---|---|---|---|
+| `dim_theme_hierarchy` to `dim_set` | One-to-Many | `theme_key` | Each set belongs to exactly one theme |
+| `dim_set` to `fct_set_inventory` | One-to-Many | `set_key` | A set has many inventory line items |
+| `dim_part` to `fct_set_inventory` | One-to-Many | `part_key` | A part appears in many set inventories |
+| `dim_color` to `fct_set_inventory` | One-to-Many | `color_key` | A colour appears in many inventory lines |
+| `dim_set` to `fct_set_minifigs` | One-to-Many | `set_key` | A set can include many minifigures |
+| `dim_set` to `fct_set_composition` | One-to-One | `set_key` | One composition summary per set |
+| `dim_color` to `fct_color_usage` | One-to-One | `color_key` | One usage summary per colour |
+| `dim_part` to `fct_part_usage` | One-to-One | `part_key` | One usage summary per part |
+| `dim_set` to `fct_theme_summary` | Many-to-One | `theme_key` | Many sets roll up to one theme summary |
+
+---
+
+## Constraint Strategy
+
+All Gold layer tables are registered in Unity Catalog with:
+
+- **PRIMARY KEY** constraints on dimension and fact tables (informational, not enforced by Databricks)
+- **FOREIGN KEY** references from fact tables to their parent dimensions
+- **NOT NULL** constraints on surrogate key columns
+- **COMMENT** annotations on every table and column for discoverability
