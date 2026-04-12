@@ -8,15 +8,19 @@ This project showcases the complete engineering workflow of integrating the LEGO
 
 ![Solution Design](/docs/solution_design/assets/solution_design.png)
 
-> For a detailed solution design document, see [Solution Outline Document](docs/solution_design/solution_outline_document.md).
+> For a detailed solution design document, see [Solution Outline Document](docs/solution_design/readme.md).
 
 ## Domain Data Model
 
 ![Domain Data Model](/docs/domain_model/domain_model.png)
 
+> For a detailed explanation of the domain data models, see [Domain Data Model](docs\solution_design\02-conceptual-data-model.md).
+
 ## Conceptual Data Model
 
 ![Conceptual Data Model](/docs/conceptual_model/conceptual_model.png)
+
+> For a detailed explanation of the conceptual data models, see [Conceptual Data Model](docs\solution_design\02-conceptual-data-model.md).
 
 ## Logical Data Model
 

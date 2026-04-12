@@ -56,35 +56,3 @@ Every Gold notebook follows this standardised pattern:
 4. **Register** - `CREATE OR REPLACE TABLE` with full DDL including column types, NOT NULL constraints, comments, and table-level descriptions
 5. **Constrain** - Apply PRIMARY KEY, FOREIGN KEY, and PARENT KEY constraints
 6. **Load** - `INSERT INTO` from the Delta volume path
-
----
-
-## Execution Dependencies
-
-```
-Bronze Layer (independent - can run in parallel):
-  load_colors, load_themes, load_sets, load_parts,
-  load_part_categories, load_minifigs, load_inventories,
-  load_inventory_parts, load_inventory_minifigs, load_inventory_sets
-
-Silver Layer (independent - can run in parallel after Bronze):
-  foundation_colors, foundation_themes, foundation_sets, foundation_parts,
-  foundation_part_categories, foundation_minifigs, foundation_inventories,
-  foundation_inventory_parts, foundation_inventory_minifigs, foundation_inventory_sets
-
-Gold Layer (ordered dependencies):
-  1. dim_theme_hierarchy  (depends on: foundation_themes)
-  2. dim_color            (depends on: foundation_colors)
-  3. dim_part             (depends on: foundation_parts, foundation_part_categories)
-  4. dim_set              (depends on: foundation_sets, dim_theme_hierarchy,
-                           foundation_inventories, foundation_inventory_parts,
-                           foundation_inventory_minifigs)
-  5. fct_set_inventory    (depends on: dim_set, dim_part, dim_color,
-                           foundation_inventories, foundation_inventory_parts)
-  6. fct_set_minifigs     (depends on: dim_set, foundation_inventories,
-                           foundation_inventory_minifigs, foundation_minifigs)
-  7. fct_set_composition  (depends on: fct_set_inventory, fct_set_minifigs)
-  8. fct_color_usage      (depends on: fct_set_inventory, dim_color)
-  9. fct_part_usage       (depends on: fct_set_inventory, dim_part)
-  10. fct_theme_summary   (depends on: dim_set, fct_set_inventory, fct_set_minifigs)
-```
