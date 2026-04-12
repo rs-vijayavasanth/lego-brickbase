@@ -164,7 +164,8 @@ erDiagram
     }
 
     fct_theme_summary:::fct {
-        STRING  theme_name        PK
+        STRING  theme_key        PK
+        STRING  theme_name
         STRING  root_theme_name
         BIGINT  total_sets
         DOUBLE  avg_parts_per_set
@@ -192,7 +193,7 @@ erDiagram
 
     dim_part            ||--|| fct_part_usage     : "part_key"
 
-    dim_set             }o--|| fct_theme_summary  : "theme_name (aggregated)"
+    dim_set             }o--|| fct_theme_summary  : "theme_key"
 
     %% Styling
     classDef dim stroke:#f90,stroke-width:2px
