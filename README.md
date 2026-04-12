@@ -8,7 +8,7 @@ This project showcases the complete engineering workflow of integrating the LEGO
 
 ![Solution Design](/docs/solution_design/assets/solution_design.png)
 
-> For a detailed solution design document, see [Solution Outline Document](docs/solution_design/readme.md).
+> For a detailed solution design document, see [Solution Outline Document](docs/solution_design/README.md).
 
 ## Domain Data Model
 
@@ -205,3 +205,5 @@ erDiagram
     classDef dim stroke:#f90,stroke-width:2px
     classDef fct stroke:#06f,stroke-width:2px
 ```
+
+> For a detailed explanation of the logical data models, see [Logical Data Model](docs\solution_design\04-logical-data-model.md).
