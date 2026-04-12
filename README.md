@@ -6,7 +6,9 @@ This project showcases the complete engineering workflow of integrating the LEGO
 
 ## Solution Design
 
-![Solution Design](/docs/solution_design/solution_design.png)
+![Solution Design](/docs/solution_design/assets/solution_design.png)
+
+> For a detailed solution design document, see [Solution Outline Document](docs/solution_design/solution_outline_document.md).
 
 ## Domain Data Model
 
@@ -28,9 +30,9 @@ config:
 erDiagram
     direction LR
 
-    %% ── Dimension Tables ──────────────────────────────────────────────────────
+    %% Dimension Tables
 
-    dim_theme_hierarchy:::dim {
+    dim_theme_hierarchy {
         INTEGER theme_key       PK
         INTEGER theme_id
         STRING  theme_name
@@ -40,7 +42,7 @@ erDiagram
         INTEGER hierarchy_depth
     }
 
-    dim_set:::dim {
+    dim_set {
         STRING    set_key                   PK
         INTEGER   theme_key                 FK
         STRING    set_number
@@ -59,7 +61,7 @@ erDiagram
         TIMESTAMP source_last_modified_date
     }
 
-    dim_part:::dim {
+    dim_part {
         STRING  part_key              PK
         STRING  part_number
         STRING  part_name
@@ -73,7 +75,7 @@ erDiagram
         STRING  external_ids
     }
 
-    dim_color:::dim {
+    dim_color {
         INTEGER color_key       PK
         INTEGER color_id
         STRING  color_name
@@ -82,9 +84,9 @@ erDiagram
         STRING  color_family
     }
 
-    %% ── Fact Tables ───────────────────────────────────────────────────────────
+    %% Fact Tables
 
-    fct_set_inventory:::fct {
+    fct_set_inventory {
         INTEGER inventory_id         PK
         STRING  part_key             PK
         INTEGER color_key            PK
@@ -104,7 +106,7 @@ erDiagram
         STRING  image_url
     }
 
-    fct_set_minifigs:::fct {
+    fct_set_minifigs {
         STRING  set_key                 PK
         STRING  minifig_key             PK
         STRING  set_number
@@ -119,7 +121,7 @@ erDiagram
         STRING  minifig_set_image_url
     }
 
-    fct_set_composition:::fct {
+    fct_set_composition {
         STRING  set_key                PK
         STRING  set_number
         STRING  set_name
@@ -136,7 +138,7 @@ erDiagram
         BIGINT  number_of_minifigs
     }
 
-    fct_color_usage:::fct {
+    fct_color_usage {
         INTEGER color_key                  PK
         STRING  color_name
         STRING  rgb
@@ -149,7 +151,7 @@ erDiagram
         STRING  top_theme
     }
 
-    fct_part_usage:::fct {
+    fct_part_usage {
         STRING  part_key                     PK
         STRING  part_name
         STRING  part_category_name
@@ -163,7 +165,7 @@ erDiagram
         INTEGER latest_year_appeared
     }
 
-    fct_theme_summary:::fct {
+    fct_theme_summary {
         STRING  theme_key        PK
         STRING  theme_name
         STRING  root_theme_name
@@ -177,7 +179,7 @@ erDiagram
         BIGINT  unique_colors_used
     }
 
-    %% ── Relationships ─────────────────────────────────────────────────────────
+    %% Relationships
 
     dim_theme_hierarchy ||--o{ dim_set            : "theme_key"
 
